@@ -1,0 +1,84 @@
+1. Blockchain
+= distributed data structure, that is shared between the nodes of the underlying peer to peer network
+- realizes distributed networks without a trusted intermediary
+- relies on cryptography instead (every user has a pair of private and public key, private key for signing his transactions and public key to be addressed with in the network
+- consensus mechanism PoW, PoS —> not needed in private Blockchains 
+
+Christidis, K.; Devetsikiotis, M.(2016): Blockchains and Smart Contracts for the Internet of Things, S. 1-4
+
+Blockchain properties
+- distributed consensus mechanism: no need for a central trustworthy party
+- values can be stored in the blockchain: crypto currencies 
+- all transactions are transparent and irreversible
+
+Prinz, W.; Schulte, A.(2017): Blockchain - Technologien, Forschungsfragen und Anwendungen, S. 4
+
+Blockchain mechanism
+- sender creates a transaction (transmission of crypto currencies, registration of a document, etc.) signs it digitally and forwards it to the network
+- the nodes in the peer-to-peer network check if the transaction is valid and if this is the case, the transaction is added to a block
+- the process of creating new blocks and adding them to the Blockchain is called mining
+	Mining (Proof of Work) 
+	- every block has a corresponding hash value
+	- miners have to find the original string which corresponds to the hash value of 	the new block
+	- as hash functions are irreversible, this task can only be solved by trying out
+	- when the string is found all other nodes can easily verify the result by simply 	using the hash function
+	- the new chain is then distributed to other nodes in the network to create a 		consensus about the network state
+
+Prinz, W.; Schulte, A.(2017): Blockchain - Technologien, Forschungsfragen und Anwendungen, S.6
+
+2. Smart Contracts
+- enable automatic and trustworthy modification of information in the Blockchain
+- continuous updates of the Smart Contract is not possible, once implemented, it cannot be revised without questioning the integrity of the Blockchain
+
+Prinz, W.; Schulte, A.(2017): Blockchain - Technologien, Forschungsfragen und Anwendungen, S.14
+
+Smart Contracts = scripts, which are stored on the blockchain and embedded into an infrastructure (hardware or software), that can enforce them automatically
+- Smart contracts have a unique address, to which a transaction can be sent to trigger the Smart contract and the execution will start immediately 
+- a contract has its own account on the blockchain, in which it can hold assets
+- smart contracts are deterministic, the same input will always cause the same output 
+- all interactions with the contract are signed, therefore the nodes can trace back all operations
+
+Christidis, K.; Devetsikiotis, M.(2016): Blockchains and Smart Contracts for the Internet of Things, S. 1-4
+
+Smart Contracts and the real world
+- for the execution of smart contracts, it is critical to feed the Blockchain with the necessary data of the triggering event
+- the triggering event must even be computational verifiable
+- smart contract performance relies on:
+	- availability of necessary data
+	- ability to feed such data to the smart contract
+- in most applications, it is necessary that the smart contract reacts to events in the physical world
+—> the original blockchain was designed as a closed system for security and efficiency reasons. This isolated system cannot accept any input from the physical world
+	- on chain events: events that are visible to the blockchain (passage of time, addition of blocks, transfer of tokens)
+	- off chain events: events in the physicals world, blockchain cannot accept direct input from these events
+
+Triggering smart contracts
+- complex algorithms generate a public key and a private key, the algorithm also ensures that the private key cannot be derived from the public key
+- the public key is used to identify an account to which tokens can be transferred
+- scripts will lock the tokens to the public key and without the corresponding private key, the account remains a sealed box
+- the unlocking scripts have to sign with the private key
+- smart contracts remain these sealed boxes which can only be opened with the right key but are isolated from the physical world
+—> third parties must be included that will sign the unlocking script after verifying that the off chain event has taken place = oracles
+
+Problems
+1. oracles can only sign or not sign the contract, there is no room for tendencies
+2. necessary to find a reliable oracle and a reliable data source
+—> oracles do not compute the information but retrieve it from external sources like websites, prediction markets or other blockchains
+—> parties of the smart contract have to agree on a used oracle and the data source
+—> rely on a network of oracles and accept information if n of m oracles sign the unlocking script
+3. act of obtaining information
+- public and universally accessible information (weather, stock prices)
+- sensor data may produce divergent information dependent on the placement and the sensitivity of the sensors (one specific source has to be defined to avoid conflicts)
+- visible information but difficult to obtain (delivery of a packet) —> elaborate physical infrastructure with advanced sensor activity necessary 
+- IoT will provide this infrastructure but there is an absence of security and standardization
+4. not all off chain events can be expressed in computer-readable data or measured with objective criteria (quality of a designer handbag)
+
+Mik, E. (2017): Smart Contracts: Terminology, Technical Limitations and Real World Complexity
+
+
+3. Oracles
+- type of smart contract which collects data from one or more sources to report it to other blockchains
+- oracles are necessary if the smart contract refers to an off-blockchain event 
+- the oracle monitors and verifies the blockchain event 
+
+Kiviat, T.(2015):„Smart“ Contract Markets: Trading derivatives contracts on the blockchain
+
