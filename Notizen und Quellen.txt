@@ -167,3 +167,87 @@ Prusty, N.(2017): Building Blockchain Projects
 - blockchain routers contain: validators, nominators, surveillants, connectors
 - consensus is reached by voting 
 
+
+
+1. Smart Contract
+Smart contract = executable code running on top of a blockchain
+=  collection of computer protocols that facilitate, verify, or enforce the negotiation or performance of a contract by executing the terms of a contract  automatically
+- Smart contracts can control digital assets like money or stocks stored on a blockchain. The input data has to be stored in the blockchain and the execution results will be stored in the blockchain again
+- reducing transaction costs, superior to paper based contracts because they are executable automatically
+- was proposed by Nick Szabo on digital contracts and digital currency 
+
+Yu, L., Tsai, W. T., Li, G., Yao, Y., Hu, C., & Deng, E. (2017). Smart-Contract Execution with Concurrent Block Building
+
+Smart contract = self executing sripts stored on a blockchain 
+- integrate the concepts of blockchains (-> distributed, automated workflows)
+- have a unique address
+- send transaction to this address to trigger the smart contract -> independent and automatic execution
+- a smart contract is deterministic (same input => same output)
+- interactions are signed messages on the blockchain
+- A properly written smart contract should describe all possible outcomes of the contract
+
+Christidis, K., & Devetsikiotis, M. (2016). Blockchains and smart contracts for the internet of things
+
+
+2. Blockchain
+= distributed data structure shared by members of the network
+Characteristics
+- no trusted intermediary
+- decentralized network without central authority needed
+- blockchain enables trustless networks (transactions without trusting each other)
+- key characteristic: cryptography
+Chain
+- blocks identified by cryptographic hash
+- reference to the block before (hash) creates the link between the blocks (->chain)
+Blockchain network
+= nodes operating on the same blockchain (each node has a copy); peer-to-peer network
+- pair of private/public keys: private key to sign own transaction, address node in the network with public key -> use of asymmetric cryptography allows authentication, integrity, and non- repudiation
+- nodes who receive a transaction check if this transaction is valid; collected and validated transactions (during certain arranged time) are packed into a block (mining); the nodes of the network check if the block has a valid transaction and if they refer to the correct previous block via the hash
+- shared blockchain: authenticated and timestamped record of the actions in the network
+Consensus Mechanism
+- distributed consensus mechanism to agree on transactions and order of blocks
+- proof-of-work, proof-of-stake
+- not needed in private networks
+
+Christidis, K., & Devetsikiotis, M. (2016). Blockchains and smart contracts for the internet of things
+
+- decentralize the way we store data and manage information, removing central intermediators
+- different chains cannot communicate and has no mutual trust at all (network capacity similar to LAN)
+- consensus mechanism  provides security (also limits the development of blockchain system)
+
+Wang, H., Cen, Y., & Li, X. (2017). Blockchain Router: A Cross-Chain Communication Protocol
+
+- digital assets like money or stocks can be stored on a blockchain
+- Permissioned blockchains: Only nodes with permission can verify and vote in the block creation process
+- Permissionless blockchains: Every can can verify and vote
+
+Yu, L., Tsai, W. T., Li, G., Yao, Y., Hu, C., & Deng, E. (2017). Smart-Contract Execution with Concurrent Block Building
+
+3. Ethereum
+- A public blockchain
+- In Ethereum, there are two types of entities that can generate and receive transactions: people and contracts.
+- A contract is essentially an automated agent that lives on the Ethereum BC, has an address and a balance and can send and receive transactions, programmability and execution are priority items.
+
+Smart Contracts in Ethereum
+- Smart contracts in Ethereum: code (its functions) and data (its states); on specific addresses on the blockchain
+- Smart contracts are written in high-level languages such as Solidity, Serpent, and LLL, and then compiled into bytecode to be uploaded on the BC
+- Contracts on the blockchain in binary format called Ethereum Virtual Machine
+- The bytecode consists of a series of bytes representing operations
+- There is an index pointer which increases by one with every operation; the operation associated with the current index pointer is executed
+- Each operation requires a fee and the balance on the account will be reduced
+- a node can send a transaction to a Ethereum smart contract, then the contract executes its code 
+
+- Each node of Ethereum processes every transaction on its list and changes its state until a block is built successfully. Then write state in block header; send block
+- When a node receives a block it processes the transactions in the block and calculates new state. If the state matched the state in the block header the block will be accepted.
+
+Yu, L., Tsai, W. T., Li, G., Yao, Y., Hu, C., & Deng, E. (2017). Smart-Contract Execution with Concurrent Block Building
+
+
+4. Oracles
+- routers connecting a set of application programming interfaces
+- smart contract collects data from software interfaces or other sources
+- provide data (collect data from one source and send it to another node)
+
+Lauslahti, K., Mattila, J., & Seppälä, T. (2017). Smart contracts–how will blockchain technology affect contractual practices
+
+
