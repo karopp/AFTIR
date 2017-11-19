@@ -153,6 +153,83 @@ contract Sample
     } 
 } 
 
+Programming Languages: Solidity, Serpent, LLL, Viper
+—> Smart Contracts have to run in the same way on every node, they have to run in suffienciently large sandboxes to prevent manipulation, conventional languages do not have sandboxes which are large enough and they suffer from variations in behavior, so they present too much attack surface for malicious code 
+
+Smart Contract Building Platforms
+- Ethereum
+- Bitcoin
+- Counterparty
+- Stellar
+- Monax
+- Lisk: uses Javascript
+- TEZOS: new platform, different from Bitcoin and Ethererum 
+- NEO
+- Achain
+
+Detailed Information:
+
+1. Ethereum:
+= blockchain with built in turing complete programming language which provides an environment for developing smart contracts and decentralized applications by defining new rules of ownership, tranaction formats and state transition functions. 
+
+Smart Contracts = encrypted boxes with a contained value. As long as the predefined conditions are not fulfilled, the box is locked. 
+
+Ethereum Accounts
+- State is made out of Account objects, these have a 20 byte address and state transitions are realized by transferring value
+- Acoount fields: Nonce (counter to ensure transaction are only processed once), ether balance, contract code, storage
+- two types of accounts (externally owned accounts controlled by private keys, contract accounts controlled by their code)
+- externally owned accounts send messages by creating and signing a transaction
+- when contract account receives a message, its code activates and read or write storage or send other messages
+- messages can be created externally or by a contract, the receiver can return a response
+- transaction is the signed data package that stores the message, they contain: signature of sender, receiver, amount of data, startgas and gasprice
+- startgas is the limit for the computational steps of the code execution
+- gasprice is the fee to pay to the miner per computational step
+
+Ethereum Whitepaper
+
+- has its own public blockchain
+- smart contracts are written in a stack based byte code language, which is Turing complete but there are also high level languages (Serpent, Solidity, LLL) which compile into byte code language 
+
+2. Bitcoin: 
+- bitcoin protocol can be used to create smart contracts 
+- easy implementation because no security and privacy risks like on more complex platforms (Ethereum)
+- smart contract functionality is not as programmable and extensible like Ethereum 
+- non Turing-complete scripting language which is limited to arithmetic, logical and crypto operation 
+- only a small fraction of nodes is able to process transaction with complex scripts 
+
+3. Counterparty
+- platform without own blockchain, embeds the data in bitcoin transactions
+the data is ignored by bitcoin nodes but the nodes of counterparty can interpret them 
+- written in same language as Ethereum but no consensus mechanism 
+- no transaction fees but the destroyed and the nodes are rewarded by the inflation (proof of burn)
+
+4. Stellar 
+- public blockchain with its own currency 
+- no specific language for smart contracts, complex contracts are created with transaction chaining and multi signature accounts 
+
+5. Monax
+- supports the Execution of Ethereum contracts without having an own currency 
+- allows to create private blokchchains 
+
+6. Lisk
+- own currency and a public blockchain 
+- Smart contracts can be written in JavaScript or in Node.js
+- the determinism must be ensured by the programmers (not using math.random)
+- contract owners can customize the blockchain by choosing which nodes participate in the consensus 
+
+An empirical analysis of smart contracts - platforms, applications, and design patterns
+
+7. TEZOS
+- programming language is Michelson 
+
+8. NEO
+- NEO contract supports almost every high level language —> compiler ensures that that the virtual machine can execute the code 
+- C#, Java, VB.Net, C, C++, Python, Javascript 
+
+9. Achain
+- Programming language is Glua 
+
+
 Prusty, N.(2017): Building Blockchain Projects
 
 6. Town Crier
@@ -166,7 +243,6 @@ Prusty, N.(2017): Building Blockchain Projects
 - blockchain routers are used for a cross chain communication with a cross chain communication protocol
 - blockchain routers contain: validators, nominators, surveillants, connectors
 - consensus is reached by voting 
-
 
 
 1. Smart Contract
