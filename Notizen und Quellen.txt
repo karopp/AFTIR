@@ -153,8 +153,25 @@ contract Sample
     } 
 } 
 
-Programming Languages: Solidity, Serpent, LLL, Viper
+Programming Languages 
+Solidity, Serpent, LLL, Viper
 —> Smart Contracts have to run in the same way on every node, they have to run in suffienciently large sandboxes to prevent manipulation, conventional languages do not have sandboxes which are large enough and they suffer from variations in behavior, so they present too much attack surface for malicious code 
+- Solidity
+- Serpent / Viper
+- LLL
+- JavaScript
+- Bitcoin Scripting Language 
+- Node.Js
+
+1. Solidity
+- most developed language and compiler 
+2. Serpent / Viper
+- Serpent is a low level language and therefore not recommended but Viper is the successor to Serpent 
+3. LLL
+4. JavaScript
+5. Bitcoin Scripting Language 
+- fewer than 200 opcodes 
+
 
 Smart Contract Building Platforms
 - Ethereum
