@@ -367,6 +367,31 @@ Counterparty:
 -own currency (transfer between users, spend to execute contracts
 -proof-of-burn: no fees for executing contracts but the paid fees are destroyed and the nodes are indirectly rewarded by the inflation of the currency
 
+Stellar:
+-public blockchian with own cryptocurrency
+-consensus algorithm: node agrees on a transaction if the nodes in its neighbourhood also agree
+- in comparison to proof-of-work, this protocol uses less computing power,no solving of cryptographic puzzles
+-no specific language for smart contracts, but it still can be used to implement basic smart contracts
+- also other transactions than payment (could be implemented on Bitcoin platform as well): creating an account
+- special accounts called multisignature for more than one owner (for operating threshold of consensus of the owners is needed)
+
+Monax
+-execution of Ethereum contracts without the currency ether
+-users can create private blockchains and the authorization policies for access
+-consensus protocol: in rounds; one node proposes a new block of transactions, the others vote for it, it is approved with 2/3 of the votes; if a proposed block is rejected the next round starts and another participant proposes the next block
+
+Lisk:
+-own currency and a public blockchain
+-consensus mechanism: delegated proof-of-stake
+-101 active delegates, each one elected by the stakeholders, have the authority to generate blocks.
+-execution of Turing-complete smart contracts, written either in JavaScript or in Node.js.
+-determinism of executions is not ensured by the language: rather, programmers must take care of it,
+-has a main blockchain, and each smart contract is executed on a seperate blockchain
+-Users can deposit or withdraw currency from a contract to the main chain
+-contract owners can customize their blockchain (eg which nodes participate the consensus mechanism)
+
++ in this paper also is a little table comparing these 6 platforms
+
 
 Bartoletti, M., Pompianu, L. (2017). An empirical analysis of 
 smart contracts: platforms, applications, and design patterns.
