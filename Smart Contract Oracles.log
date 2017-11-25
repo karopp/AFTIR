@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.4.30)  25 NOV 2017 16:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.4.30)  25 NOV 2017 18:36
 entering extended mode
 **"./Smart Contract Oracles.tex"
 ("Smart Contract Oracles.tex"
@@ -133,7 +133,36 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 391.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 391.
-No file "Smart Contract Oracles".bbl.
+
+LaTeX Warning: Citation `Meitinger2017' on page 1 undefined on input line 406.
+
+
+LaTeX Warning: Citation `Spancken2016' on page 1 undefined on input line 406.
+
+
+LaTeX Warning: Citation `Jung2017' on page 1 undefined on input line 408.
+
+
+LaTeX Warning: Citation `Lee2016' on page 1 undefined on input line 408.
+
+
+LaTeX Warning: Citation `Christidis2016' on page 1 undefined on input line 416.
+
+
+("Smart Contract Oracles.bbl"
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \end{thebibliography}
+                          
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -148,24 +177,27 @@ Before submitting the final camera ready copy, remember to:
 [1{C:/Users/nm/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
-
 ]
-("Smart Contract Oracles.aux") ) 
+("Smart Contract Oracles.aux")
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 1047 strings out of 493617
- 19433 string characters out of 3136378
- 73475 words of memory out of 3000000
- 4518 multiletter control sequences out of 15000+200000
- 34085 words of font info for 63 fonts, out of 3000000 for 9000
+ 1062 strings out of 493617
+ 19677 string characters out of 3136378
+ 78475 words of memory out of 3000000
+ 4530 multiletter control sequences out of 15000+200000
+ 35192 words of font info for 64 fonts, out of 3000000 for 9000
  1028 hyphenation exceptions out of 8191
- 26i,7n,19p,222b,230s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/nm/AppData/Local/Programs/MiKTeX 2.9/
-fonts/enc/dvips/fontname/8r.enc}<C:/Users/nm/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/urw/times/utmb8a.pfb><C:/Users/nm/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/nm/AppData/Local/Programs/MiKTeX 2
-.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/nm/AppData/Local/Programs/MiKTeX 
-2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on "Smart Contract Oracles.pdf" (1 page, 43700 bytes).
+ 26i,7n,19p,618b,230s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/nm/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.en
+c}<C:/Users/nm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.p
+fb><C:/Users/nm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a
+.pfb><C:/Users/nm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8
+a.pfb><C:/Users/nm/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr
+i8a.pfb>
+Output written on "Smart Contract Oracles.pdf" (1 page, 50504 bytes).
 PDF statistics:
  23 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
