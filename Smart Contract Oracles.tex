@@ -408,8 +408,14 @@ Smart Contracts are scripts, which translate contract clauses into software code
 Smart Contracts can be used for many different applications. An easy example would be a website which is sold from one contractual party to another. As soon as the purchaser pays price, which was stored in the Smart Contract, it will automatically transfer the property rights of the webiste. If physical objects are included, even a car rental service can be controlled by a Smart Contract. The script would watch if the payments occur in the agreed period and in case the borrower is overdue, the code will block the electronic car key. \cite{Jung2017} \cite{Lee2016}
 \subsection{Blockchain}
 Subsection text here.
+\subsubsection{Network, Blocks and Mining}
+\subsubsection{Consensus Mechanism}
+The content of the Blockchain is replicated in the decentralized peer to peer network, therefore all nodes in the network have to find a consensus regarding updates to ensure that only one network state is recognized as "the truth" by all parties. Especially in trustless networks like the Blockchain, special mechanisms have to be found for this purpose. \cite{Dinh?}\par 
+\textit{Proof of Work} was the consensus mechanism used for Bitcoin. It means that some nodes in the network, the so called miners, have to solve cryptographical puzzles based on hash functions. There are CPU and memory based PoW variants but both have in common, that the solving time can be adapted by choosing the difficulty of the puzzle. No matter if the miners have to spend CPU cycles or wait for memory queries, PoW consumes always a decent amount of ressources, which is the main drawback of this consensus mechanism. \cite{Dinh?} \cite{Golze2009}
+\textit{Proof of Stake} on the other hand is much less expensive than PoW regarding energy consumption because the puzzle's difficulty is adapted on the miner's stake in the network. The stake measures the participation in the Blockchain network and is mostly expressed by the amount of coins, that a miner holds in the respecive cryprocurrency. Alternatively, there is also \textit{Proof of Burn}, where miners have to burn coins in order to mine new blocks and add new content to the Blockchain. Burning means sending money to an address where it cannot be spent. \cite{Dinh?} \par
+The presented consensus mechanisms are suitable for public Blockchains, but there are also other architectures, which are based on private Blockchains or decentralized networks with some trusted parties. Especially for the last-mentioned, easier consensus mechanisms can be implemented, like \textit{Proof of Authority}, where the trusted parties update the Blockchain alternatly. In private Blockchains, where nodes are authenticated and a minimum of trust is assumed, communication based protocols like PBFT can be used, where all participants in the network have a right to vote and the consensus is reached through multiple voting rounds. \cite{Dinh?} \par 
 
-\subsubsection{Technical Structure}
+\subsection{Technical Structure}
 Subsubsection text here.
 \subsection{Data Feeds and Processing}
 
