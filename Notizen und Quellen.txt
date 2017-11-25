@@ -1,3 +1,397 @@
+<<<<<<< HEAD
+Notes Karoline:
+
+1. Blockchain
+= distributed data structure, that is shared between the nodes of the underlying peer to peer network
+- realizes distributed networks without a trusted intermediary
+- relies on cryptography instead (every user has a pair of private and public key, private key for signing his transactions and public key to be addressed with in the network
+- consensus mechanism PoW, PoS —> not needed in private Blockchains 
+
+Christidis, K.; Devetsikiotis, M.(2016): Blockchains and Smart Contracts for the Internet of Things, S. 1-4
+
+Blockchain properties
+- distributed consensus mechanism: no need for a central trustworthy party
+- values can be stored in the blockchain: crypto currencies 
+- all transactions are transparent and irreversible
+
+Prinz, W.; Schulte, A.(2017): Blockchain - Technologien, Forschungsfragen und Anwendungen, S. 4
+
+Blockchain mechanism
+- sender creates a transaction (transmission of crypto currencies, registration of a document, etc.) signs it digitally and forwards it to the network
+- the nodes in the peer-to-peer network check if the transaction is valid and if this is the case, the transaction is added to a block
+- the process of creating new blocks and adding them to the Blockchain is called mining
+	Mining (Proof of Work) 
+	- every block has a corresponding hash value
+	- miners have to find the original string which corresponds to the hash value of 	the new block
+	- as hash functions are irreversible, this task can only be solved by trying out
+	- when the string is found all other nodes can easily verify the result by simply 	using the hash function
+	- the new chain is then distributed to other nodes in the network to create a 		consensus about the network state
+
+Prinz, W.; Schulte, A.(2017): Blockchain - Technologien, Forschungsfragen und Anwendungen, S.6
+
+2. Smart Contracts
+- enable automatic and trustworthy modification of information in the Blockchain
+- continuous updates of the Smart Contract is not possible, once implemented, it cannot be revised without questioning the integrity of the Blockchain
+
+Prinz, W.; Schulte, A.(2017): Blockchain - Technologien, Forschungsfragen und Anwendungen, S.14
+
+Smart Contracts = scripts, which are stored on the blockchain and embedded into an infrastructure (hardware or software), that can enforce them automatically
+- Smart contracts have a unique address, to which a transaction can be sent to trigger the Smart contract and the execution will start immediately 
+- a contract has its own account on the blockchain, in which it can hold assets
+- smart contracts are deterministic, the same input will always cause the same output 
+- all interactions with the contract are signed, therefore the nodes can trace back all operations
+
+Christidis, K.; Devetsikiotis, M.(2016): Blockchains and Smart Contracts for the Internet of Things, S. 1-4
+
+Smart Contracts and the real world
+- for the execution of smart contracts, it is critical to feed the Blockchain with the necessary data of the triggering event
+- the triggering event must even be computational verifiable
+- smart contract performance relies on:
+	- availability of necessary data
+	- ability to feed such data to the smart contract
+- in most applications, it is necessary that the smart contract reacts to events in the physical world
+—> the original blockchain was designed as a closed system for security and efficiency reasons. This isolated system cannot accept any input from the physical world
+	- on chain events: events that are visible to the blockchain (passage of time, addition of blocks, transfer of tokens)
+	- off chain events: events in the physicals world, blockchain cannot accept direct input from these events
+
+Triggering smart contracts
+- complex algorithms generate a public key and a private key, the algorithm also ensures that the private key cannot be derived from the public key
+- the public key is used to identify an account to which tokens can be transferred
+- scripts will lock the tokens to the public key and without the corresponding private key, the account remains a sealed box
+- the unlocking scripts have to sign with the private key
+- smart contracts remain these sealed boxes which can only be opened with the right key but are isolated from the physical world
+—> third parties must be included that will sign the unlocking script after verifying that the off chain event has taken place = oracles
+
+Problems
+1. oracles can only sign or not sign the contract, there is no room for tendencies
+2. necessary to find a reliable oracle and a reliable data source
+—> oracles do not compute the information but retrieve it from external sources like websites, prediction markets or other blockchains
+—> parties of the smart contract have to agree on a used oracle and the data source
+—> rely on a network of oracles and accept information if n of m oracles sign the unlocking script
+3. act of obtaining information
+- public and universally accessible information (weather, stock prices)
+- sensor data may produce divergent information dependent on the placement and the sensitivity of the sensors (one specific source has to be defined to avoid conflicts)
+- visible information but difficult to obtain (delivery of a packet) —> elaborate physical infrastructure with advanced sensor activity necessary 
+- IoT will provide this infrastructure but there is an absence of security and standardization
+4. not all off chain events can be expressed in computer-readable data or measured with objective criteria (quality of a designer handbag)
+
+Mik, E. (2017): Smart Contracts: Terminology, Technical Limitations and Real World Complexity
+
+
+3. Oracles
+- type of smart contract which collects data from one or more sources to report it to other blockchains
+- oracles are necessary if the smart contract refers to an off-blockchain event 
+- the oracle monitors and verifies the blockchain event 
+
+Kiviat, T.(2015):„Smart“ Contract Markets: Trading derivatives contracts on the blockchain
+
+- the only possibility to get data into the Blockchain, is to address it with transactions 
+- if any third party is included, which provides the data, this party has to be trustworthy which contradicts the fundaments of the blockchain architecture (to avoid central intermediaries)
+- from a technical point of view, an oracle is simply an player who can feed transactions into the blockchain
+- the events in the physical world are coded in these transactions to inform the blockchain about it
+Solutions:
+1. Distributed Oracles: the blockchain does not have to trust one oracle but uses a network of oracles and trusts the decision of the majority
+- there is no single point of failure in distributed oracles (manipulation is also harder)
+- it is more difficult to create a consensus with distributed oracles 
+- Ex: Orisi
+2. Reality Keys: Mixture of automated oracles and human intervention
+- in normal and easy cases, it works like a normal oracle and fetches the information from APIs and other open sources
+- if there is any doubt in the network, a human can double check it 
+- fallback mechanism in the smart contract is necessary if one party doubts the result of the oracle and a human must check it, no guarantee for the correct result even after human intervention 
+3. Oraclize: uses TLSNotary to ensure reliability
+- TLSNotary ensures that a certain server has sent certain data at a certain time (no manipulation) with a TLS connection
+- not 100% secure because the system could be hacked 
+
+4. Technical Implementation
+Ethereum: Platform for decentralized applications with a turing complete programming language
+- in contrast to Bitcoin platform, it is possible to inject executable code in the platform with transactions 
+- if the code is activated by a second transaction, every node can execute it in the Ethereal Virtual Machine 
+- Ethereal has its own currency called Ether, which means that financial applications can also be realized in Ethereum
+
+Components of Ethereum
+- MIST Browser: graphical user interface for using the dapps and a wallet for managing Ether entities
+- EVM: distributed virtual machine, which runs on every node in the network, is used to execute Smart contracts and to manage the stored values (their condition can be changed by the programming language), if a function of a smart contract is used in the EVM all nodes in the network execute it
+- Clients: to interact with the network e.g. geth which uses Javascript API Web3
+- Swarm: distributed file system to store data
+- Whisper: internal communcation protocol to exchange information between smart contracts or dapps
+
+Spancken, M.; Hellenkamp M., Brown C.(2016): Kryptowährungen und Smart Contracts 
+
+5. Programming Smart Contracts
+- Solidity as programming language
+- structure of a smart contract is like a class with state variables, modifiers, events, structures and enums 
+- support inheritance
+- variables can be stored in memory or in the filesystem
+- data types: bool, int, array, string, structs, enums, mapping (hash table), address
+Example: 
+contract Sample 
+{ 
+    //state variables 
+    uint256 data; 
+    address owner; 
+
+    //event definition 
+    event logData(uint256 dataToLog);  
+
+    //function modifier 
+    modifier onlyOwner() { 
+        if (msg.sender != owner) throw; 
+        _; 
+    } 
+
+    //constructor 
+    function Sample(uint256 initData, address initOwner){ 
+        data = initData; 
+        owner = initOwner; 
+    } 
+
+    //functions 
+    function getData() returns (uint256 returnedData){ 
+        return data; 
+    } 
+
+    function setData(uint256 newData) onlyOwner{ 
+        logData(newData); 
+        data = newData; 
+    } 
+} 
+
+Prusty, N.(2017): Building Blockchain Projects
+
+6. Town Crier
+- authenticated data feed for blockchains
+- uses Intel’s SGX (Software Guard Extension): executes processes in an isolated enclave, which cannot be manipulated by other programs, not even by the operating system
+- TC uses a smart contract front end which communicated with the requesting smart contract
+- normal requests are visible on the blockchain, but TC supports private requests with encryption
+
+7. Blockchain Router
+- normal blockchain networks (Ethereum or Bitcoin) are called sub-chains, they can communicate with blockchain routers but not directly with other sub-chains 
+- blockchain routers are used for a cross chain communication with a cross chain communication protocol
+- blockchain routers contain: validators, nominators, surveillants, connectors
+- consensus is reached by voting 
+
+
+Notes Nina:
+
+1. Smart Contract
+Smart contract = executable code running on top of a blockchain
+=  collection of computer protocols that facilitate, verify, or enforce the negotiation or performance of a contract by executing the terms of a contract  automatically
+- Smart contracts can control digital assets like money or stocks stored on a blockchain. The input data has to be stored in the blockchain and the execution results will be stored in the blockchain again
+- reducing transaction costs, superior to paper based contracts because they are executable automatically
+- was proposed by Nick Szabo on digital contracts and digital currency 
+
+Yu, L., Tsai, W. T., Li, G., Yao, Y., Hu, C., & Deng, E. (2017). Smart-Contract Execution with Concurrent Block Building.
+
+Smart contract = self executing sripts stored on a blockchain 
+- integrate the concepts of blockchains (-> distributed, automated workflows)
+- have a unique address
+- send transaction to this address to trigger the smart contract -> independent and automatic execution
+- a smart contract is deterministic (same input => same output)
+- interactions are signed messages on the blockchain
+- A properly written smart contract should describe all possible outcomes of the contract
+
+Christidis, K., & Devetsikiotis, M. (2016). Blockchains and smart contracts for the internet of things.
+
+Examples Smart Contract
+- platforms where end users can build their own self-executing contract (e.g. on the Bitcoin blockchain network)
+
+Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, S. (2016). The blockchain as a software connector.
+
+- Management of Intellectual Property Rights: watch legal deadlines, pay fees on time, watch formal requirements -> smart contracts can replace specialized lawyers as intermediates between applicant and the patent office
+- the regulations of the Patent Act can be implemented as if-then statements
+
+Meitinger, T. H. (2017). Smart Contracts.
+
+
+2. Blockchain
+= distributed data structure shared by members of the network
+
+Characteristics
+- no trusted intermediary
+- decentralized network without central authority needed
+- blockchain enables trustless networks (transactions without trusting each other)
+- key characteristic: cryptography
+
+Chain
+- blocks identified by cryptographic hash
+- reference to the block before (hash) creates the link between the blocks (->chain)
+
+Christidis, K., & Devetsikiotis, M. (2016). Blockchains and smart contracts for the internet of things.
+
+= ordered list of blocks
+- blocks are containers of transactions
+- blocks are identifiable and linked to the previous block in the chain
+
+Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, S. (2016). The blockchain as a software connector. 
+
+Blockchain network
+= nodes operating on the same blockchain (each node has a copy); peer-to-peer network
+- pair of private/public keys: private key to sign own transaction, address node in the network with public key -> use of asymmetric cryptography allows authentication, integrity, and non- repudiation
+- nodes who receive a transaction check if this transaction is valid; collected and validated transactions (during certain arranged time) are packed into a block (mining); the nodes of the network check if the block has a valid transaction and if they refer to the correct previous block via the hash
+- shared blockchain: authenticated and timestamped record of the actions in the network
+
+Consensus Mechanism
+- distributed consensus mechanism to agree on transactions and order of blocks
+- proof-of-work, proof-of-stake
+- not needed in private networks
+
+Christidis, K., & Devetsikiotis, M. (2016). Blockchains and smart contracts for the internet of things.
+
+- blockchains decentralize the way we store data and manage information, removing central intermediators
+- different chains cannot communicate and has no mutual trust at all (network capacity similar to LAN)
+- consensus mechanism  provides security (also limits the development of blockchain system)
+
+Wang, H., Cen, Y., & Li, X. (2017). Blockchain Router: A Cross-Chain Communication Protocol.
+
+- digital assets like money or stocks can be stored on a blockchain
+- Permissioned blockchains: Only nodes with permission can verify and vote in the block creation process
+- Permissionless blockchains: Every can can verify and vote
+
+Yu, L., Tsai, W. T., Li, G., Yao, Y., Hu, C., & Deng, E. (2017). Smart-Contract Execution with Concurrent Block Building.
+
+- the first generation of blockchain did not support
+programmable transactions much (public ledger for monetary transactions, typical application: cryptocurrency)
+-the second generation: generally programmable infrastructure. Smart contracts were introduced
+
+Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, S. (2016). The blockchain as a software connector. 
+
+
+3. Ethereum
+- Ethereum is the most popular platform for smart contracts, Lisk is an alternative (also a platform for smart contracts based on the blockchain technology; in Lisk smart contracts can be written in JavaScript)
+
+Meitinger, T. H. (2017). Smart Contracts.
+
+= a blockchain-based platform
+- smart contracts = their first class element
+- Ethereum built its own blockchain
+- this blockchain has a (Turing-complete) script language to write smart contracts
+
+Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, S. (2016). The blockchain as a software connector. 
+
+- A public blockchain
+- In Ethereum, there are two types of entities that can generate and receive transactions: people and contracts.
+- contract is automated agent that is set on the Ethereum blockchain, has an address and a balance and can send and receive transactions, programmability and execution are priority items.
+
+Smart Contracts in Ethereum (+Structure)
+- Smart contracts in Ethereum: code (its functions) and data (its states); on specific addresses on the blockchain
+- Smart contracts are written in high-level languages such as Solidity, Serpent, and LLL, and then compiled into bytecode to be uploaded on the blockchain
+- Contracts on the blockchain in binary format called Ethereum Virtual Machine (EVM)
+
+Yu, L., Tsai, W. T., Li, G., Yao, Y., Hu, C., & Deng, E. (2017). Smart-Contract Execution with Concurrent Block Building
+
+- the EVM = runtime environment for smart contracts in Ethereum
+- the EVM is not connected to network, filesystem, other processes
+- smart contracts have limited access to other smart contracts
+
+English, M., Auer, S., & Domingue, J. (2016, May). Block chain technologies & the semantic web: A framework for symbiotic development.
+
+- The bytecode consists of a series of bytes representing operations
+- There is an index pointer which increases by one with every operation; the operation associated with the current index pointer is executed
+- Each operation requires a fee and the balance on the account will be reduced
+- a node can send a transaction to a Ethereum smart contract, then the contract executes its code 
+- Each node of Ethereum processes every transaction on its list and changes its state until a block is built successfully. Then it writes the state into the block header; send block
+- When a node receives a block it processes the transactions in the block and calculates new state. If the state matched the state in the block header the block will be accepted.
+
+Yu, L., Tsai, W. T., Li, G., Yao, Y., Hu, C., & Deng, E. (2017). Smart-Contract Execution with Concurrent Block Building.
+
+- transactions are data packages storing monetary value, code, parameters of functions, results of functions
+- integrity of the transactions: cryptographic techniques
+
+Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, S. (2016). The blockchain as a software connector.
+
+- Ethereum is the most popular platform for smart contracts on the basis of blockchain
+- in Ethereum accounts can be created; these accounts manage the virtual currency Ether and the smart contracts
+- the virtual currency Ether is needed to pay for the execution of smart contracts
+- smart contracts are written in low-level languages or in high-level languages to increase the readability (at the beginning Serpent, now Solidity)
+-regulations (of for example a law) can be implemented as if-then statements
+- a set of one after another events can be implemented as a sequence of a blockchain in the smart contract
+
+Meitinger, T. H. (2017). Smart Contracts.
+
+Example Code Smart Contract on Industry 4.0 Platform
+
+contract mortal {
+ /* Define variable owner of the type address */
+ address owner;
+ /* this function is executed at initialization and sets the owner of the contract */
+ function mortal () owner = msg.sender;
+ /* Function to recover the funds on the contract */
+ function kill () if (msg.sender == owner) suicide(owner);
+ }
+
+ contract accountManager is mortal {
+ /* data structure to hold accounts */
+ struct Account {
+ string uri;
+ bytes32 hash;
+ }
+
+ /* mapping of accounts to data */
+ mapping (address => Account) accounts;
+ function setAccount (string uri, bytes32 hash) returns (bool)
+ return setAccount (msg.sender, uri, hash);
+ function setAccount (address account, string uri, bytes32 hash) returns (bool) {
+ bool rv = msg.sender == owner || msg.sender == account;
+ if (rv) accounts [account] = Account (uri, hash);
+ return rv;
+ }
+ function readAccountUri (address account) constant returns (string)
+ return accounts [account].uri;
+ function readAccountHash (address account) constant returns (bytes32)
+ return accounts [account].hash;
+ }
+
+- mortal super-class: initialization and finalization of the smart contract
+- contract accountManager: array indexed by accounts: uri for product type, hash for concrete product
+- public key authentication of Ethereum: only a certified account owner can update information
+
+English, M., Auer, S., & Domingue, J. (2016, May). Block chain technologies & the semantic web: A framework for symbiotic development.
+
+
+4. Problems Blockchain/Smart Contract
+- closed execution environment
+- no import of external states by polling external servers
+
+Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, S. (2016). The blockchain as a software connector.
+
+- verification of external data
+- (division and delivery of physical assets)
+-> development of smart oracle to verify external data
+
+Eze, P., Eziokwu, T., & Okpara, C. (2017). A Triplicate Smart Contract Model using Blockchain Technology.
+
+
+5. Oracles
+- routers connecting a set of application programming interfaces
+- smart contract collects data from software interfaces or other sources
+- provide data (collect data from one source and send it to another node)
+
+Lauslahti, K., Mattila, J., & Seppälä, T. (2017). Smart contracts–how will blockchain technology affect contractual practices.
+
+Validation oracle
+- because the blockchain has a closed execution environment and it is not allowed to import external data
+- to evaluate conditions which is not possible in the blockchain itself
+- using external state
+- may be independent of the blockchain network, can be implemented as a server outside the network
+- validation of a transaction relies on external data, the validation oracle can validate and sign the transaction
+Example
+-Orisi: pre-defined set of oracles to run and their signatures needed to sign a contract
+
+Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, S. (2016). The blockchain as a software connector.
+
+- input example for a smart oracle: data from a GPS tracking system
+- every smart oracle is as smart as its information source
+
+Problems oracles
+- authenticity and integrity of the data used by smart oracles 
+
+
+Eze, P., Eziokwu, T., & Okpara, C. (2017). A Triplicate Smart Contract Model using Blockchain Technology.
+
+
+
+
+=======
 1. Blockchain
 = distributed data structure, that is shared between the nodes of the underlying peer to peer network
 - realizes distributed networks without a trusted intermediary
@@ -553,3 +947,4 @@ Eze, P., Eziokwu, T., & Okpara, C. (2017). A Triplicate Smart Contract Model usi
 
 
 
+>>>>>>> 9015ea0914bca6418f0a022b24e96ed0addcf1f4
