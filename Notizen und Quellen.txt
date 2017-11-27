@@ -321,7 +321,17 @@ Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, 
 
 Meitinger, T. H. (2017). Smart Contracts.
 
-possible applications: smart vehicle insurance (adaption of the insurance sum to the driving style), marshall tasks (if a person does not pay the rate for the car, it is locked automatically)
+
+Accord Project: launched smart contract 
+by Clause, a legal tech start-up pioneering data-driven contracts and ‘Software-as-a-Service’ product transitioning contracts from static documents into real-time, integrated, components of commercial systems
+users can draft and host a wide array of contracts integrated with data, and monitor their state in real-time
+open source software
+Hyperledger
+uses external data to drive the contract's execution
+first consortium driven by the legal industry
+https://clause.io/; https://www.forbes.com/sites/rogeraitken/2017/07/26/accord-projects-consortium-launching-first-legal-smart-contracts-with-hyperledger/#2ef05323472c
+
+possible applications: smart vehicle insurance (adaption of the insurance sum to the driving style), marshall tasks (if a person does not pay the rate for the car, it is locked automatically), pay with Ethereum at a charging station for electric cars
 
 
 
@@ -421,12 +431,11 @@ Lisk:
 + in this paper also is a little table comparing these 6 platforms
 
 
-Bartoletti, M., Pompianu, L. (2017). An empirical analysis of 
-smart contracts: platforms, applications, and design patterns.
+Bartoletti, M., Pompianu, L. (2017). An empirical analysis of smart contracts: platforms, applications, and design patterns.
 
 
 
-3.1 Ethereum
+3.1 Ethereum https://www.ethereum.org/
 
 - the second platform for market capitalization, after Bitcoin.
 -relies on a public blockchain, consensus algorithm similar to that of Bitcoin
