@@ -312,7 +312,7 @@ Christidis, K., & Devetsikiotis, M. (2016). Blockchains and smart contracts for 
 
 
 Examples Smart Contract
-- platforms where end users can build their own self-executing contract (e.g. on the Bitcoin blockchain network)
+- platforms where end users can build their own self-executing contract (e.g. on the Bitcoin blockchain network) ("There are platforms that allow end users to build selfexecuting contracts on the Bitcoin blockchain network, for example, smartcontract" "However, smart contracts on the Bitcoin blockchain network are very simple due to the limited expressiveness of the corresponding scripting language, which does not support complex control flow.")
 
 Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, S. (2016). The blockchain as a software connector.
 
@@ -320,6 +320,8 @@ Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, 
 - the regulations of the Patent Act can be implemented as if-then statements
 
 Meitinger, T. H. (2017). Smart Contracts.
+
+possible applications: smart vehicle insurance (adaption of the insurance sum to the driving style), marshall tasks (if a person does not pay the rate for the car, it is locked automatically)
 
 
 
