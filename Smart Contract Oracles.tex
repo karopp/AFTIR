@@ -424,11 +424,16 @@ The content of the Blockchain is replicated in the decentralized peer to peer ne
 The above-mentioned consensus mechanisms are suitable for public Blockchains, but there are also other architectures, which are based on private Blockchains or decentralized networks with some trusted parties. Especially for the last-mentioned, easier consensus mechanisms can be implemented, like \textit{Proof of Authority}, where the trusted parties update the Blockchain alternatly. In private Blockchains, where nodes are authenticated and a minimum of trust is assumed, communication based protocols like PBFT can be used, where all participants in the network have a right to vote and the consensus is reached through multiple voting rounds. \cite{Dinh?} \par 
 
 \subsection{Technical Structure}
-Subsubsection text here.
 
+\subsubsection{Smart Contract Platforms}
+%Ethereum --> würde ich als erstes machen, weil es die bekannteste Plattform ist.
+\textit{Bitcoin} was the first well-known decentralised cryptocurrency and the platform was originally created only for transferring transactions. With the rise of Ethereum and decentalized applications, developers started to use Bitcoin to execute protocols, which represent a limited form of Smart Contracts. Bitcoin's platform is suitable for this purpose because it uses its own public Blockchain to keep track of all transactions and Proof of Work as consensus mechanism, which creates the transparency and immutability that in necessary dealing with Smart Contracts. \cite{Bartoletti2017} \par 
+\textit{Monax} in contrast is a platform without own currency, but which supports executing Ethereum Smart Contracts. Private Blockchains can be created, where the user defines his preferred authorization policy. Due to the lack of publicity in this platform, no intensive computation is needed for reaching consensus. Instead there are voting rounds, where a node can propose a block and if it reaches 2/3 of the of the vote, this block is added to the chain. \cite{Bartoletti2017} \par 
+\textit{Lisk} has a public Blockchain with a currency like Bitcoin and Ethereum, but, instead of executing all applications on one main chain, Lisk provides separate Blockchains for every Smart Contract. The consensus mechanism in this platform is a delegated Proof of Stake, where the nodes can elect delegates, who are allowed to create blocks. The contract owner can decide which nodes should participate on the election process in the consensus mechanism of his customized subchain. \cite{Bartoletti2017} \par 
+\textit{Hyperledger} was created to achieve a distributed ledger framework for industry applications and business transactions by the Linux Foundation. The platform for executing Smart Contracts is called Hyperledger Fabric and contains a permissioned Blockchain with two types of peers. The validating peer takes part in the consensus mechanism (PBFT) and validates transactions. The non-validating peer is not allowed to execute transactions but it can verify them and connect clients to the validating peers.\cite{Cachin2016} \par 
 
-\subsubsection{Technical Structure}
-
+\subsubsection{Programming Languages}
+The programming languages, that can be used to write Smart Contracts on the Blockchain are as various as the underlying platforms. 
 
 \subsection{Data Feeds and Processing}
 
