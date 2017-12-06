@@ -436,6 +436,8 @@ Bartoletti, M., Pompianu, L. (2017). An empirical analysis of smart contracts: p
 
 
 3.1 Ethereum https://www.ethereum.org/
+http://www.ethdocs.org/en/latest/ (documentation of the Ethereum community)
++White Paper
 
 - the second platform for market capitalization, after Bitcoin.
 -relies on a public blockchain, consensus algorithm similar to that of Bitcoin
