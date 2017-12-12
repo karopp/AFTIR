@@ -433,7 +433,9 @@ Lisk:
 
 Bartoletti, M., Pompianu, L. (2017). An empirical analysis of smart contracts: platforms, applications, and design patterns.
 
+-Nxt
 
+D. McAdams, P. L. Seijas, and S. Thompson (2017). Scripting smart contracts for distributed ledger technology.
 
 3.1 Ethereum https://www.ethereum.org/
 http://www.ethdocs.org/en/latest/ (documentation of the Ethereum community)
@@ -562,6 +564,13 @@ Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, 
 Eze, P., Eziokwu, T., & Okpara, C. (2017). A Triplicate Smart Contract Model using Blockchain Technology.
 
 
+on-chain: within the blockchain network
+off-chain: outside the blockchain system (e.g. on a third party server)
+
+
+Idelberger, F., Governatori, G., Riveret, R., & Sartor, G. (2016). Evaluation of logic-based smart contracts for blockchain systems.
+
+
 
 6. Oracles
 - routers connecting a set of application programming interfaces
@@ -588,5 +597,23 @@ Problems oracles
 - authenticity and integrity of the data used by smart oracles 
 
 Eze, P., Eziokwu, T., & Okpara, C. (2017). A Triplicate Smart Contract Model using Blockchain Technology.
+
+-contracts may need to acquire data from outside the blockchain, e.g. from a website
+-The Ethereum language does not allow contracts to query external sites
+-Oracles are the interface between contracts and the outside
+-Technically, they are just contracts, and as such their state can be updated by sending them transactions
+-in practice: a contract queries an oracle
+-one of the most common: Oraclize
+
+Bartoletti, M., Pompianu, L. (2017). An empirical analysis of smart contracts: platforms, applications, and design patterns.
+
+
+-smart contracts that reference off-blockchain events must be able to monitor real world conditions
+-Oracles are systems set up to monitor off-blockchain information and data that is essential to the effective execution of the smart contract’s terms.
+
+
+Kiviat, T.(2015): Smart Contract Markets: Trading derivatives contracts on the blockchain.
+
+
 
 
