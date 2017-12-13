@@ -84,15 +84,42 @@ Mik, E. (2017): Smart Contracts: Terminology, Technical Limitations and Real Wor
 
 Kiviat, T.(2015):â€žSmartâ€œ Contract Markets: Trading derivatives contracts on the blockchain
 
+Codius
+- smart contract are strictly deterministic, in order to communicate with the real word, they relay on cryptographic signatures provided by oracles 
+- oracles = trusted entities that sign claims about the state of the real world Ñ> verification of the signatures is a deterministic process which allows the deterministic smart contracts to interact with the non-deterministic outside world 
+- challenge: design a system that can run powerful smart contracts and has a robust consensus mechanism (very difficult to obtain)
+Ñ> consensus networks must be conservative about their feature set to avoid complex structures that could lead to bugs because that will cause forks in the chain
+Ñ> since consensus is required, the technology is relatively difficult to update or modify 
+Codius approach: code execution is decoupled from consensus databases or other asset transfer services 
+- the execution network and the consensus network interact through cryptographic signatures 
+- this decoupling allows the smart contract to interact with multiple networks and services at once (Bitcoin and Ripple, web- based services like PayPal, Google, Ebay, etc. or even other Internet protocols, such as SSH, LDAP, SMTP and XMPP.
+
+1. traditional approach: independent entities inform the contract about the state of the outside world by introducing signatures to the network when specific conditions are met
+
+2. Smart Oracles: entities that can both, providing information and executing the contract 
+- smart oracles expose specific APIs to the contracts they run (Internet, filesystem, randomness, time)
+
+Codius Whitepaper: https://github.com/codius/codius/wiki/Smart-Oracles:-A-Simple,-Powerful-Approach-to-Smart-Contracts
+
 - the only possibility to get data into the Blockchain, is to address it with transactions 
 - if any third party is included, which provides the data, this party has to be trustworthy which contradicts the fundaments of the blockchain architecture (to avoid central intermediaries)
 - from a technical point of view, an oracle is simply an player who can feed transactions into the blockchain
 - the events in the physical world are coded in these transactions to inform the blockchain about it
+
 Solutions:
 1. Distributed Oracles: the blockchain does not have to trust one oracle but uses a network of oracles and trusts the decision of the majority
 - there is no single point of failure in distributed oracles (manipulation is also harder)
 - it is more difficult to create a consensus with distributed oracles 
 - Ex: Orisi
+
+Ñ> Augur and Truthcoin with the greatest market cap ($35 million), reputation based system is used:
+- users are rewarded for correct answers and penalized otherwise 
+- Augur runs on Ethereum and Truthcoin is implemented as a sedition within bitcoin 
+Ñ> Augur is vulnerable to parasite contracts
+- when information is validated, it is public Ñ> other contracts can report the information from the oracle to receive the fee, so it becomes unprofitable for the oracle to operate. 
+
+Abhiram Kothapalli, Christopher Cordi: A Bribery Framework using SmartContracts
+
 2. Reality Keys: Mixture of automated oracles and human intervention
 - in normal and easy cases, it works like a normal oracle and fetches the information from APIs and other open sources
 - if there is any doubt in the network, a human can double check it 
@@ -100,6 +127,21 @@ Solutions:
 3. Oraclize: uses TLSNotary to ensure reliability
 - TLSNotary ensures that a certain server has sent certain data at a certain time (no manipulation) with a TLS connection
 - not 100% secure because the system could be hacked 
+
+Chain Interoperability
+- one blockchain for all applications is not realistic because different types of application need differently designed blockchains
+- chains have to interoperate Ñ> the platforms already use cryptographic authentication and can therefore provide a more secure coupling than other systems
+Strategies for chain interoperation:
+
+1. Centralized or multisig notary schemes = a trusted entity claims to chain X that an event occurred on chain Y (Interledger project, byzantine fault consensus mechanism)
+
+2. Sidechains/relays: We can create a contract on chain B that takes one of these block headers of chain A, and uses the standard verification procedure for chain A's consensus algorithm to verify this block header. Once the relay has verified that the block header has been finalized, the relay can then verify any desired transaction, or account/state entry, separately by verifying a single branch of the Merkle tree against the block header. (light client verification)
+
+3. Hash-locking: not useful for cross-chain oracles because accessing a cross-chain oracle is a passive operation for the chain, whereas hash-locking is an active operation on both sides.
+
+Ñ> chain interoperability can achieve cross-chain oracles: smart contract on one chain that performs some action with some address only when it receives proof that an identity oracle on another chain specifies that the address is a particular unique identity
+
+Vitalik Buterin(2016): Chain Interoperability
 
 4. Technical Implementation
 Ethereum: Platform for decentralized applications with a turing complete programming language
@@ -286,6 +328,8 @@ Prusty, N.(2017): Building Blockchain Projects
 - blockchain routers are used for a cross chain communication with a cross chain communication protocol
 - blockchain routers contain: validators, nominators, surveillants, connectors
 - consensus is reached by voting 
+
+
 
 
 Notes Nina:
