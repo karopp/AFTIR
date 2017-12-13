@@ -634,6 +634,19 @@ Example
 
 Xu, X., Pautasso, C., Zhu, L., Gramoli, V., Ponomarev, A., Tran, A. B., & Chen, S. (2016). The blockchain as a software connector.
 
+Orisi White Paper:
+-oracle = an arbiter interacting with the outside world and deciding whether a set of conditions took place or not.
+-issue: trust required from the oracle (can be hacked, its process is intransparent, the oracle may disappear before finishing the transaction, the oracle may be bribed to deliver faulty results)
+-Orisi's approach is to create a distributed set of oracles run by independent and trustworthy parties instead of one single-server-oracle
+-The majority of them need to agree on the outcome for the transaction to be finalized
+-The oracles check the validity of the transaction and rules
+-The oracles may have information from websites, then they add their signature to a transaction
+
+
+https://github.com/orisi/wiki/wiki/Orisi-White-Paper "Orisi White Paper" 2014
+
+
+
 - input example for a smart oracle: data from a GPS tracking system
 - every smart oracle is as smart as its information source
 
