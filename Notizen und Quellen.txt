@@ -1,3 +1,27 @@
+Gliederung
+
+1. Introduction
+
+2. Methodology
+
+3. Smart Contracts
+3.1 Principles and Applications
+3.2 Blockchain
+3.2.1 Network, Blocks and Mining
+3.2.2 Consensus Mechanism 
+3.3 Technical Structure
+3.3.1 Smart Contract Platforms 
+3.3.2 Programming Languages
+3.4 Data Feeds and Processing
+
+4. Oracles 
+4.1 Definition 
+4.2 Implementation
+4.2.1 Decentralized Oracles (Ex. ChainLink)
+4.2.2 Untampered data sources (Ex. Oraclize)
+4.2.3 Trusted Hardware (Ex. Town Crier)
+4.3 Limitations
+5. Conclusion
 
 
 1. Blockchain
@@ -110,7 +134,7 @@ Solutions:
 1. Distributed Oracles: the blockchain does not have to trust one oracle but uses a network of oracles and trusts the decision of the majority
 - there is no single point of failure in distributed oracles (manipulation is also harder)
 - it is more difficult to create a consensus with distributed oracles 
-- Ex: Orisi
+- Ex: Orisi (https://github.com/orisi/wiki/wiki/Orisi-White-Paper)
 
 —> Augur and Truthcoin with the greatest market cap ($35 million), reputation based system is used:
 - users are rewarded for correct answers and penalized otherwise 
@@ -124,9 +148,29 @@ Abhiram Kothapalli, Christopher Cordi: A Bribery Framework using SmartContracts
 - in normal and easy cases, it works like a normal oracle and fetches the information from APIs and other open sources
 - if there is any doubt in the network, a human can double check it 
 - fallback mechanism in the smart contract is necessary if one party doubts the result of the oracle and a human must check it, no guarantee for the correct result even after human intervention 
+
 3. Oraclize: uses TLSNotary to ensure reliability
 - TLSNotary ensures that a certain server has sent certain data at a certain time (no manipulation) with a TLS connection
 - not 100% secure because the system could be hacked 
+
+Decentralized oracles 
+- no need to rely on one trusted intermediary because several oracles are used and the result is only accepted when a number of oracles have provided the same answer.
+—> Problems with decentralized oracles: requires a predefined data format (?) and it is inefficient in the way that every node will require a fee for participating and it takes time until a result is provided.
+
+Chain Link Approach
+Ensuring a trusted data source: 
+1. Distributing data sources (majority voting)
+2. Distributing oracles 
+3. use of trusted hardware 
+
+ChainLink Whitepaper 
+
+Oraclize’s solution: demonstrate that the data fetched from the source is untampered (return data together with authenticity proof)
+- internal structure: repeatedly verify a predefined condition and only return data when the condition is met, data request contains: data source type, query, optional authenticity prod type
+- data source types: website or web API, secure application running on trusted hardware, locked-down virtual machine running on cloud provider (URL, WolphramAlpha, IPFS, random, computation)
+- supports public and private blockchains 
+
+http://docs.oraclize.it/#home
 
 Chain Interoperability
 - one blockchain for all applications is not realistic because different types of application need differently designed blockchains
