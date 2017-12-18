@@ -717,4 +717,46 @@ Kiviat, T.(2015): Smart Contract Markets: Trading derivatives contracts on the b
 
 
 
+Motivation Oracles
+-current smart contracts have very little to no capability to interact with other blockchains, the Internet and the rest of the world (they need to be deterministic, while events in the real world are highly undeterministic if not completely random)
+-The most widely known way to feed outer information into smart contracts is using an oracle.
+-Oracle = a trusted entity which signs claims about the state of the world.
+-oracles allow smart contracts to react to events happening in the outside world
+-The problem with an oracle is: trust in a single third party (the oracle), thus it is not trustless. And this also means there is a single point of failure and external malicious are may be more possible.
+
+->decentralized oracles as a solution for this issue
+-computer network made up of nodes
+-communicate and operate as peers in compliance with an agreed protocol
+-acquire knowledge of information that is external to the network
+-verify and agree on the veracity of the acquired information
+-supply such verified information to other applications or networks that may need it
+=a peer-to-peer (P2P) network capable of processing Retrieve-Attest-Deliver requests
+-Retrieve-Attest-Deliver requests contain specific information on how a piece of information must be retrieved, attested and delivered.
+
+Witnet
+=decentralized oracle network that connects smart contracts to the outer world.
+-retrieves contents from any web address
+-with complete and verifiable proof of its integrity
+-without blindly trusting any third party
+-runs on a blockchain
+-in contrast to other oracles it is not based on trust: the claims can be considered to be true because they themselves are built by comparing and combining a number of likely conflicting claims coming from a plurality of anonymous players
+-key components of the Witnet protocol: Decentralized Oracle Network, Reputation-Based Mining Protocol, Reputation-Based Task Assignment Protocol, Bridge nodes
+
+
+de Pedro, A. S., Levi, D., & Cuende, L. I. (2017): Witnet: A Decentralized Oracle Network Protocol. https://arxiv.org/pdf/1711.09756.pdf
+
+
+-Because of how blockchain transactions are recorded and verified by consensus, smart contracts are unable, on their own, to talk to external data feeds.
+->Oracles are needed
+-pieces of middleware by which smart contracts can receive, and act on, data from off-chain systems.
+-"Part of the reason that we're seeing Ethereum used almost exclusively for ICOs is that there is a lack of robust, general-purpose oracles today, and therefore it's very difficult to construct useful, interesting smart contracts"
+-data inputs and payment outputs are needed for many applications of smart contracts
+-there is a startup called SmartContract; network ChainLink
+
++ChainLink Whitepaper
+
+Patrick Eha, Brian (2017): The race to connect smart contracts to the real world. https://hds.hebis.de/ulbda/EBSCO/Record?id=124493326|buh
+
+
+
 
