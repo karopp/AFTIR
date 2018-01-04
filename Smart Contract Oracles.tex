@@ -450,6 +450,16 @@ Bitcoin and Ethereum provide a virtual machine (low level computation model) and
 \subsection{Data Feeds and Processing}
 
 \section{Oracles}
+\subsection{Definition}
+\subsection{Implementation}
+\subsubsection{Decentralized Oracles}
+\subsubsection{Untampered Data Sources}
+\subsubsection{Trusted Hardware}
+Another solution for gathering data for smart contracts is trusted hardware. The oracle based on trusted hardware connects a blockchain with trusted hardware. There is a connection between a smart contract and a off-chain trusted computer environment. A trusted hardware component is one possible answer to the general issue of smart contracts: the lack of a trustworthy data feed.\par 
+An example for this approach is Town Crier. Town Crier connects smart contracts with existing websites which already are commonly trusted for non-blockchain applications. In more detail Twon Crier creates a connection between HTTPS-enabled websites and the Ethereum blockchain and provides an authenticated data feed respectively oracle. It gathers data from the websites and passes it on to the inquiring(??) smart contract in form of so called datagrams.\par 
+Town Crier uses Intel’s SGX - Software Guard Extension and a smart contract front end. With SGX it is possible to execute processes in an isolated enclave which protects the process from manipulation by hardware attacks and software on the same host, even the operating system. Town Crier consists of three main components: The TC Contract C$_{TC}$ (on the blockchain), the Enclave and the Relay (on the Town Crier server). The C$_{TC}$ represents a simple API to a requesting smart contract which wants to use Town Crier's services of getting data from a website. It gets the requests from requester/relying contract, returns the datagrams from Town Crier and manages TC's monetary resources.
+Town Crier is especially developed for the platform Ethereum.
+In addition to normal requests which are visible on the blockchain Town Crier also supports private and custom requests.
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
 % For figures, \caption should occur after the \includegraphics.
