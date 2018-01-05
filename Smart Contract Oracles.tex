@@ -116,7 +116,7 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+   \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -451,6 +451,17 @@ Bitcoin and Ethereum provide a virtual machine (low level computation model) and
 
 \section{Oracles}
 \subsection{Definition}
+Smart Contracts, that run on the Blockchain, are unable to connect to off-chain data sources, which limits their field of application enormously. Securities Smart Contracts like bonds need to know the market prices and interest rates to compute results and insurance Smart Contracts need to be fed with IoT data that report real world events to the contract. Oracles are introduced to create a bridge between Smart Contracts on the Blockchain and external APIs. \cite{Ellis2017} \par 
+Ideally, an oracle represents a trusted third party, which executes tasks in a faithful manner. This oracle fetches data from a perfectly trustworthy data source and reports the results to the Smart Contract. As indicated in \ref{idealOracle}, the workflow of an oracle starts with a request from a user contract, specifying the data source, the time and a query. The oracle will then send the query to the chosen data source at the time indicated in the request. When the oracle receives an answer from the data source, it will return it to the user contract. \cite{Ellis2017} \par 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=8cm]{idealOracle.png}
+		\caption{Ideal oracle workflow}
+		\label{idealOracle}
+	\end{center}
+\end{figure} 
+As the request and the result are exchanged on the Blockchain, the messages are public, which must be avoided in case of sensitive data. To create a confidential communication, the request from the user contract can be encrypted with the public key of the oracle, ensuring that only the oracle contract can access the information. \cite{Ellis2017} \par
+In practice, neither perfectly trustworthy data sources nor reliable third parties can be assumed. Thus, an oracle implementation which can handle unreliable data sources and malicious third parties has to be found. Three different approaches are presented in the following. 
 \subsection{Implementation}
 \subsubsection{Decentralized Oracles}
 \subsubsection{Untampered Data Sources}
