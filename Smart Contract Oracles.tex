@@ -455,7 +455,7 @@ Smart Contracts, that run on the Blockchain, are unable to connect to off-chain 
 Ideally, an oracle represents a trusted third party, which executes tasks in a faithful manner. This oracle fetches data from a perfectly trustworthy data source and reports the results to the Smart Contract. As indicated in \ref{idealOracle}, the workflow of an oracle starts with a request from a user contract, specifying the data source, the time and a query. The oracle will then send the query to the chosen data source at the time indicated in the request. When the oracle receives an answer from the data source, it will return it to the user contract. \cite{Ellis2017} \par 
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width=8cm]{idealOracle.png}
+		\includegraphics[width=9cm]{idealOracle.png}
 		\caption{Ideal oracle workflow}
 		\label{idealOracle}
 	\end{center}
@@ -465,14 +465,25 @@ In practice, neither perfectly trustworthy data sources nor reliable third parti
 \subsection{Implementation}
 \subsubsection{Decentralized Oracles}
 The issue of faulty data sources can be solved by using distributed sources instead of addressing one single API. The oracle will thus receive a multitude of answers and has to aggregate them. This could be done in different ways depending on the type of data. One possibility is majority voting, where the most reported answer is returned. Another could be ignoring the outliners in the data and return the mean of the remaining information. \cite{Ellis2017} \par 
-Besides the data quality, relying on a single party would contradict the idea of the decentralzed Blockchain and it cannot be assumed that a single oracle party is unconditionally trustworthy. Therefore, distributed oracles in form of a decentralized oracle network are introduced. Each oracle addresses a set of data sources and aggregates the information to one result. The oracle network will then find a consensus which ensures that the correct information is reported to the user contract even if some of the oracles in the network are faulty. \cite{Ellis2017} \par 
-ChainLink proposes a solution for a decentralized oracle network, which consists of an on-chain and an off-chain part. ChainLink's on-chain interface is used for communicating directly with user contracts on the Blockchain and is composed of three main contracts.
+Besides the data quality, relying on a single party would contradict the idea of the decentralized Blockchain and it cannot be assumed that a single oracle party is unconditionally trustworthy. Therefore, distributed oracles in form of a decentralized oracle network are introduced. Each oracle addresses a set of data sources and aggregates the information to one result. The oracle network will then find a consensus which ensures that the correct information is reported to the user contract even if some of the oracles in the network are faulty. \cite{Ellis2017} \par 
+ChainLink proposes a solution for a decentralized oracle network, which consists of an on-chain and an off-chain part. ChainLink's on-chain interface is used for communicating directly with user contracts on the Blockchain and is composed of three main contracts:
 \begin{itemize}
 	\item Reputation contract: To reward good performing oracles in the network, the reputation contract observes and reports several metrics like the number of completed requests or the average time to respond. The user can specify which oracles should execute the task according to their reputation.
 	\item Order-matching contract: The list of oracles to execute the query is forwarded to the order-matching contract, which notifies the ChainLink nodes and waits for their response whether they accept the task or not. After the automated oracle matching is completed, the order-matching contract sends a message to the final oracle selection and they start executing the task.
 	\item Aggregating contract: The responses of the ChainLink nodes are collected by the aggregating contract, which calculates the result of the query by creating a consensus between the different answers. It also reports the reputation metrics of the participating oracles back to the reputation contract. \cite{Ellis2017}   
 \end{itemize}
-  
+The on-chain component is for simplicity in the following abstracted to a single "on-chain contract".
+The ChainLink off-chain part consists of the oracle network, which communicates with external application programming interfaces (APIs). Each of the nodes is composed of two modules. The first module is the core, which interfaces the on-chain part of ChainLink. 
+\begin{figure}[h]
+	\begin{center}
+		\includegraphics[width=9cm]{ChainLink.png}
+		\caption{ChainLink architecture}
+		\label{chainlink}
+	\end{center}
+\end{figure}  
+As indicated in \ref{chainlink}, the core receives the event, which was logged by the on-chain contract that received the request. The core is responsible for scheduling and balancing the events, it will thus route the task to the next module in the node, the adapter. Adapters simplify the interaction with the external API by converting complex multi-step APIs to manageable individual subtasks. After receiving the task, the adapter will forward the request to the API and send the response back to the core, which reports the data to the on-chain contract. The on-chain contract takes care of delivering the information to the user contract. \cite{Ellis2017} \par 
+The above presented solution makes use of in-contract aggregation because all ChainLink nodes report their results individually and the on-chain contract performs the aggregation. An important challenge for this mechanism is called freeloading, which means that an oracle could wait for the responses of other oracles and copy the answer without having to perform the query. To prevent this, a commit / reveal scheme is introduced, where the oracles send encrypted responses to the on-chain contract and after all answers have been delivered, the oracles reveal the data in a second round. \cite{Ellis2017} \par 
+It becomes obvious that a decisive disadvantage of the in-contract aggregation are the costs for transmitting the oracle messages and processing them. Off-chain aggregation offers an alternative without having the on-chain contract to participate in the consensus mechanism. For this approach, the oracles have a shared key pair. Sharing in this case means that each node has its own public and private key, which can generate a partial signature. If the same data was partially signed, those can be combined to a single collective signature. The information that succesfully created a valid signature can then be passed on to the on-chain contract, which only has to forward it to the user contract. \cite{Ellis2017} \par   
 \subsubsection{Untampered Data Sources}
 \subsubsection{Trusted Hardware}
 Another solution for gathering data for smart contracts is trusted hardware. The oracle based on trusted hardware connects a blockchain with trusted hardware. There is a connection between a smart contract and a off-chain trusted computer environment. A trusted hardware component is one possible answer to the general issue of smart contracts: the lack of a trustworthy data feed.\par 
